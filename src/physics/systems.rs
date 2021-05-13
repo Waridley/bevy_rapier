@@ -18,8 +18,11 @@ use crate::rapier::geometry::{
     ColliderShape,
 };
 use crate::rapier::pipeline::QueryPipeline;
-use bevy::ecs::query::WorldQuery;
-use bevy::prelude::*;
+use bevy_app::prelude::*;
+use bevy_core::prelude::Time;
+use bevy_ecs::query::WorldQuery;
+use bevy_ecs::prelude::*;
+use bevy_transform::prelude::*;
 use rapier::dynamics::{CCDSolver, IntegrationParameters, IslandManager, JointSet};
 use rapier::geometry::{BroadPhase, NarrowPhase};
 use rapier::math::Isometry;

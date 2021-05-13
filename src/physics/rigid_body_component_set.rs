@@ -4,7 +4,7 @@ use crate::rapier::dynamics::{
     RigidBodyDominance, RigidBodyForces, RigidBodyHandle, RigidBodyIds, RigidBodyMassProps,
     RigidBodyPosition, RigidBodyType, RigidBodyVelocity,
 };
-use bevy::prelude::*;
+use bevy_ecs::prelude::*;
 use rapier::data::{ComponentSet, ComponentSetMut, ComponentSetOption, Index};
 
 impl IntoHandle<RigidBodyHandle> for Entity {

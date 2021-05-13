@@ -1,5 +1,5 @@
 use super::{IntoEntity, IntoHandle};
-use bevy::prelude::*;
+use bevy_ecs::prelude::*;
 use rapier::data::{ComponentSet, ComponentSetMut, ComponentSetOption, Index};
 use rapier::prelude::*;
 

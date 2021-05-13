@@ -1,4 +1,4 @@
-use bevy::prelude::Color;
+use bevy_render::prelude::Color;
 
 /// The desired render color of a Rapier collider.
 #[derive(Copy, Clone)]

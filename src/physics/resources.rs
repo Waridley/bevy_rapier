@@ -2,10 +2,22 @@ use crate::physics::{
     ColliderBundle, ColliderComponentsQuery, ColliderComponentsSet, IntoEntity, IntoHandle,
     JointHandleComponent, RigidBodyComponentsQuery, RigidBodyComponentsSet,
 };
-use crate::rapier::prelude::*;
-use bevy::ecs::query::WorldQuery;
-use bevy::prelude::*;
-use rapier::data::{ComponentSet, ComponentSetMut};
+use crate::rapier::data::{ComponentSet, ComponentSetMut};
+use crate::rapier::dynamics::{
+    IslandManager, JointSet, RigidBodyActivation, RigidBodyChanges, RigidBodyColliders,
+    RigidBodyIds, RigidBodyType,
+};
+use crate::rapier::geometry::{ColliderChanges, SolverFlags};
+use crate::rapier::pipeline::{ContactModificationContext, PairFilterContext, PhysicsHooksFlags};
+use crate::rapier::{
+    dynamics::{JointHandle, RigidBodyHandle},
+    geometry::{ColliderHandle, ContactEvent, IntersectionEvent},
+    pipeline::{EventHandler, PhysicsHooks},
+};
+use bevy_ecs::query::WorldQuery;
+use bevy_ecs::prelude::*;
+use bevy_app::prelude::*;
+use rapier::math::Vector;
 use std::collections::HashMap;
 use std::sync::RwLock;
 
