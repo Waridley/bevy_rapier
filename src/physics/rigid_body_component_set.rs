@@ -134,7 +134,7 @@ impl Default for RigidBodyBundle {
             damping: RigidBodyDamping::default(),
             dominance: RigidBodyDominance::default(),
             ccd: RigidBodyCcd::default(),
-            changes: RigidBodyChanges::default(),
+            changes: RigidBodyChanges::all(),
             ids: RigidBodyIds::default(),
             colliders: RigidBodyColliders::default(),
         }
