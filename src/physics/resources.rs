@@ -5,7 +5,7 @@ use crate::physics::{
 use crate::rapier::prelude::*;
 use rapier::data::{ComponentSet, ComponentSetMut,};
 use bevy_ecs::prelude::*;
-use bevy_app::prelude::*;
+use bevy_ecs::query::WorldQuery;
 use rapier::math::Vector;
 use std::collections::HashMap;
 use std::sync::RwLock;

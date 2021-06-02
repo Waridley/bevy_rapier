@@ -1,13 +1,13 @@
 use crate::physics::RapierConfiguration;
 use crate::rapier::geometry::ColliderShape;
 use crate::render::ColliderDebugRender;
-use bevy_ecs::prelude::*;
-use bevy_transform::prelude::*;
-use bevy_math::prelude::*;
-use bevy_render::prelude::*;
 use bevy_asset::prelude::*;
+use bevy_ecs::prelude::*;
+use bevy_math::prelude::*;
 use bevy_pbr::prelude::*;
 use bevy_render::mesh::{Indices, VertexAttributeValues};
+use bevy_render::prelude::*;
+use bevy_transform::prelude::*;
 use rapier::geometry::ShapeType;
 
 #[derive(Debug, Hash, PartialEq, Eq, Clone, SystemLabel)]
