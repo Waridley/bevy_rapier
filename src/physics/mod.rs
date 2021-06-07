@@ -7,7 +7,7 @@ pub use self::systems::*;
 
 use crate::rapier::data::{ComponentSet, ComponentSetMut, ComponentSetOption, Index};
 use crate::rapier::prelude::*;
-use bevy::prelude::{Entity, Query, QuerySet};
+use bevy_ecs::prelude::{Entity, Query, QuerySet};
 
 pub trait IntoHandle<H> {
     fn handle(self) -> H;
