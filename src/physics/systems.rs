@@ -21,7 +21,6 @@ use crate::rapier::pipeline::QueryPipeline;
 use bevy_core::prelude::Time;
 use bevy_ecs::prelude::*;
 use bevy_ecs::query::WorldQuery;
-use bevy_math::Quat;
 use bevy_transform::prelude::*;
 use rapier::dynamics::{CCDSolver, IntegrationParameters, IslandManager, JointSet};
 use rapier::geometry::{BroadPhase, NarrowPhase};
@@ -180,7 +179,6 @@ pub fn create_joints_system(
         }
 
         let handle = joints.insert(
-            &mut bodies,
             joint.entity1.handle(),
             joint.entity2.handle(),
             joint.params,
