@@ -25,6 +25,7 @@ pub mod r3d {
 
     use super::super::{DebugLinesConfig, RenderDebugLinesMesh, DEBUG_LINES_SHADER_HANDLE};
 
+    #[derive(Resource)]
     pub(crate) struct DebugLinePipeline {
         mesh_pipeline: MeshPipeline,
         shader: Handle<Shader>,
