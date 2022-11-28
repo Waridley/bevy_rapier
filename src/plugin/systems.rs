@@ -639,9 +639,11 @@ pub fn init_async_colliders() {}
 #[cfg(feature = "dim3")]
 pub fn init_async_colliders(
     mut commands: Commands,
-    meshes: Res<Assets<Mesh>>,
+    meshes: Option<Res<Assets<Mesh>>>,
     async_colliders: Query<(Entity, &AsyncCollider)>,
 ) {
+    let meshes = if let Some(meshes) = meshes { meshes } else { return };
+    
     for (entity, async_collider) in async_colliders.iter() {
         if let Some(mesh) = meshes.get(&async_collider.handle) {
             match Collider::from_bevy_mesh(mesh, &async_collider.shape) {
@@ -662,12 +664,15 @@ pub fn init_async_colliders(
 #[cfg(feature = "dim3")]
 pub fn init_async_scene_colliders(
     mut commands: Commands,
-    meshes: Res<Assets<Mesh>>,
-    scenes: Res<Assets<Scene>>,
+    meshes: Option<Res<Assets<Mesh>>>,
+    scenes: Option<Res<Assets<Scene>>>,
     async_colliders: Query<(Entity, &AsyncSceneCollider)>,
     children: Query<&Children>,
     mesh_handles: Query<(&Name, &Handle<Mesh>)>,
 ) {
+    let meshes = if let Some(meshes) = meshes { meshes } else { return };
+    let scenes = if let Some(scenes) = scenes { scenes } else { return };
+    
     for (entity, async_collider) in async_colliders.iter() {
         if scenes.get(&async_collider.handle).is_some() {
             traverse_descendants(entity, &children, &mut |child| {
