@@ -72,7 +72,7 @@ where
                     .chain()
                     .after(systems::update_character_controls)
                     .in_set(RapierTransformPropagateSet),
-                systems::init_async_colliders.after(RapierTransformPropagateSet),
+                systems::init_async_colliders.run_if(resource_exists::<Assets<Mesh>>()).after(RapierTransformPropagateSet),
                 systems::apply_scale.after(systems::init_async_colliders),
                 systems::apply_collider_user_changes.after(systems::apply_scale),
                 systems::apply_rigid_body_user_changes.after(systems::apply_collider_user_changes),
@@ -90,6 +90,7 @@ where
                     .after(systems::apply_initial_rigid_body_impulses),
                 #[cfg(all(feature = "dim3", feature = "async-collider"))]
                 systems::init_async_scene_colliders
+                    .run_if(resource_exists::<Assets<Mesh>>())
                     .after(bevy::scene::scene_spawner_system)
                     .before(systems::init_async_colliders),
             )

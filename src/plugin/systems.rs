@@ -1533,7 +1533,7 @@ mod tests {
     fn async_collider_initializes() {
         let mut app = App::new();
         app.add_plugins(HeadlessRenderPlugin)
-            .add_systems(Update, init_async_colliders);
+            .add_systems(Update, init_async_colliders.run_if(resource_exists::<Assets<Mesh>>()));
 
         let mut meshes = app.world.resource_mut::<Assets<Mesh>>();
         let cube = meshes.add(Cube::default().into());
@@ -1561,7 +1561,7 @@ mod tests {
         let mut app = App::new();
         app.add_plugins(HeadlessRenderPlugin).add_systems(
             Update,
-            init_async_scene_colliders.after(scene_spawner_system),
+            init_async_scene_colliders.run_if(resource_exists::<Assets<Mesh>>()).after(scene_spawner_system),
         );
 
         let mut meshes = app.world.resource_mut::<Assets<Mesh>>();
